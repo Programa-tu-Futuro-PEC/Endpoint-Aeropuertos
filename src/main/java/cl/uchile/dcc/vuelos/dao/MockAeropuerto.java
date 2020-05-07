@@ -19,6 +19,4 @@ public class MockAeropuerto {
     public static List<Aeropuerto> listaAeropuertos(){
         return listaAeropuertos;
     }
-
-
 }

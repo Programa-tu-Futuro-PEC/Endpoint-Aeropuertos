@@ -1,8 +1,10 @@
 package cl.uchile.dcc.vuelos.model;
 
+import java.util.Objects;
+
 public class Aeropuerto {
 
-    final private long id;
+    private long id;
     final private String nombre;
     final private String ciudad;
     final private String pais;
@@ -16,6 +18,15 @@ public class Aeropuerto {
         this.pais = pais;
         this.iata = iata;
         this.icao = icao;
+    }
+
+    public Aeropuerto(long id) {
+        this.id=id;
+        this.nombre = null;
+        this.ciudad = null;
+        this.pais = null;
+        this.iata = null;
+        this.icao = null;
     }
 
     public long getId() {
@@ -40,5 +51,22 @@ public class Aeropuerto {
 
     public String getIcao() {
         return icao;
+    }
+
+    public void setId(long id) {
+        this.id=id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Aeropuerto)) return false;
+        Aeropuerto that = (Aeropuerto) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

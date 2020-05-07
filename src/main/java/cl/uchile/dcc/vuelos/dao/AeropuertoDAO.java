@@ -2,8 +2,6 @@ package cl.uchile.dcc.vuelos.dao;
 
 import cl.uchile.dcc.vuelos.model.Aeropuerto;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AeropuertoDAO {
@@ -62,4 +60,25 @@ public class AeropuertoDAO {
         }*/
     }
 
+    public static int agregarAeropuerto(Aeropuerto a) {
+        List<Aeropuerto> aeros = MockAeropuerto.listaAeropuertos();
+        long id = 0;
+        for (Aeropuerto x: aeros){
+            if(x.getId()>id)
+                id = x.getId();
+        }
+        a.setId(id+1);
+        MockAeropuerto.listaAeropuertos().add(a);
+        return (int) id+1;
+    }
+
+    public static boolean borrarAeropuerto(long id) {
+        //"DELETE FROM aeropuerto WHERE id = ?";
+        return MockAeropuerto.listaAeropuertos().remove(new Aeropuerto(id));
+    }
+
+    public static boolean modificar(Aeropuerto a) {
+        MockAeropuerto.listaAeropuertos().remove(a);
+        return MockAeropuerto.listaAeropuertos().add(a);
+    }
 }

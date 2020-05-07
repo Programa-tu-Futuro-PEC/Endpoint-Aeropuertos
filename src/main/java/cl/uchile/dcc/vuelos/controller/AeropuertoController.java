@@ -21,4 +21,19 @@ public class AeropuertoController {
         return AeropuertoDAO.obtenerAeropuertoPorID(id);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/aeropuerto/")
+    public int agregarAeropuerto(@RequestBody Aeropuerto a){
+        return AeropuertoDAO.agregarAeropuerto(a);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/aeropuerto/{id}")
+    public boolean borrarAeropuerto(@PathVariable("id") long id){
+        return AeropuertoDAO.borrarAeropuerto(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/aeropuerto/")
+    public boolean modificarAeropuerto(@RequestBody Aeropuerto a){
+        return AeropuertoDAO.modificar(a);
+    }
+
 }
