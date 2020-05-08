@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MockAeropuerto {
 
-    public static List<Aeropuerto> listaAeropuertos = new ArrayList<Aeropuerto>(
+    private static List<Aeropuerto> listaAeropuertos = new ArrayList<Aeropuerto>(
             Arrays.asList(
                     new Aeropuerto(0,"scl","santiago","chile","scli","sclo"),
                     new Aeropuerto(1,"axm","Barranquilla","colombia","axmi","axmo"),
